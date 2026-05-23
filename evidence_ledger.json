@@ -1,0 +1,263 @@
+[
+    {
+        "timestamp": "2026-03-30T04:12:43.729328Z",
+        "filename": "41892ecd_uploaded.mp4",
+        "sha256_hash": "7c691b7130e49a8bd02c987c2501957dee595595b94871a12667976601ef8932",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.5464911460876465,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T05:05:43.552644Z",
+        "filename": "0811bc4c_uploaded.mp4",
+        "sha256_hash": "9ad0ebb0705a3c2707cd851c6bf87afd6131cb8a7f74e93a27782a8c2e34f934",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9461220920085907,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T05:10:40.389746Z",
+        "filename": "0242d7f6_uploaded.mp4",
+        "sha256_hash": "c6f4073daa8d8f4bab66f774be849b02ac160e4ca9e9367de52737678f6d2a1b",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:10:13.691117Z",
+        "filename": "fadb90ff_uploaded.mp4",
+        "sha256_hash": "3997794215b37a0e2797e7ba9905d93138c6f8f2be725f7f0da5471f9cdb0eb5",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9728996992111206,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:20:50.664304Z",
+        "filename": "55e27737_uploaded.mp4",
+        "sha256_hash": "c20fd831a0641738c9876a00fdbce2aa4125f94e4ee379d50a2567d156e0d6c5",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.926925927400589,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:25:48.726416Z",
+        "filename": "0c837a4c_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:25:57.864873Z",
+        "filename": "a5c246da_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:26:54.525892Z",
+        "filename": "2542ff70_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T08:55:46.989180Z",
+        "filename": "3d9edfcb_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T09:07:36.362352Z",
+        "filename": "8b5728f4_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T09:22:35.982925Z",
+        "filename": "460a6981_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0, 77.1025\u00b0",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T09:22:36.394371Z",
+        "filename": "34933218_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0, 77.1025\u00b0",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T09:35:51.644485Z",
+        "filename": "d9befbb1_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 18.5211\u00b0, 73.8502\u00b0",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T10:02:05.716010Z",
+        "filename": "f0976946_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 28.7041\u00b0 N, 77.1025\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T10:09:26.583832Z",
+        "filename": "0d443ca5_uploaded.mp4",
+        "sha256_hash": "8060ba440ced53328094d67fc6b8fc159ba116f24c4fe58dc3e75bdd3dc247b7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9497280240058898,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-03-30T10:10:00.375156Z",
+        "filename": "6c68652c_uploaded.mp4",
+        "sha256_hash": "fd45de0a18a5239d6584505a9f4cb270dcadaf2af96e74b52c644f49d33ef072",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9438679397106171,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:39:32.773639Z",
+        "filename": "9da3438d_uploaded.mp4",
+        "sha256_hash": "25e70d9363e37e0f80ae19b34443df1a0250cbadac60530ebc01fcb3216ef084",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9670660674571991,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:42:13.508621Z",
+        "filename": "c7091986_uploaded.mp4",
+        "sha256_hash": "dd992fc71a4a85ba32dc0cadc58b169cef805b1e00850416de030f57e9df0920",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:43:17.514832Z",
+        "filename": "e992163e_uploaded.mp4",
+        "sha256_hash": "66dcd703eb583d08785d898f4526b56b7eb461a83c4c916285f9aef54587d573",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:45:23.626103Z",
+        "filename": "878f7a0d_uploaded.mp4",
+        "sha256_hash": "6aa5625baec3f1c963532496fc49ecfa63edcae1a00dff35daf2ff784c1e0f34",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:45:53.692256Z",
+        "filename": "5ab7d003_uploaded.mp4",
+        "sha256_hash": "2842785e52c8008192e129cdee1e7b570b7328027466730890b154aed2a1150d",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-17T12:47:59.550645Z",
+        "filename": "d8aaf4d9_uploaded.mp4",
+        "sha256_hash": "36647abd9550f8036d2cf2936c99d8ab2e71a5b3ee26b777f0a78084dde9e3c7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:13:08.516556Z",
+        "filename": "b7399091_uploaded.mp4",
+        "sha256_hash": "6aa5625baec3f1c963532496fc49ecfa63edcae1a00dff35daf2ff784c1e0f34",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:13:53.345852Z",
+        "filename": "ae1ac281_uploaded.mp4",
+        "sha256_hash": "6aa5625baec3f1c963532496fc49ecfa63edcae1a00dff35daf2ff784c1e0f34",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.99,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:15:16.276308Z",
+        "filename": "b4385c92_uploaded.mp4",
+        "sha256_hash": "d6e21bf5ac06eae030139a5d5f700fb2c01c6639e7920cdb43c0ee04fcc2b698",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9814250230789184,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:15:43.211376Z",
+        "filename": "ceca3eec_uploaded.mp4",
+        "sha256_hash": "ec14d0a3b246a368172323f77b95f73004822b73061dad68c8d2c347f9c758f0",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9794791340827942,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:16:54.221861Z",
+        "filename": "58b02627_uploaded.mp4",
+        "sha256_hash": "56fe124233b1843f301fb7a9e576a4fc6975d16b12fd42fb88338c9096ba17c7",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9496715843677521,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:41:59.564997Z",
+        "filename": "6f2fd096_uploaded.mp4",
+        "sha256_hash": "3a4506ecff9513682c7e03d42982d57ccda7f85d51519790ca6835acfe681525",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.9391989260911942,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    },
+    {
+        "timestamp": "2026-05-19T04:43:14.380823Z",
+        "filename": "3b284bb3_uploaded.mp4",
+        "sha256_hash": "25e70d9363e37e0f80ae19b34443df1a0250cbadac60530ebc01fcb3216ef084",
+        "prediction_label": "ABNORMAL",
+        "confidence": 0.967066103219986,
+        "gps_coordinates": "GPS: 11.0280\u00b0 N, 77.0226\u00b0 E",
+        "verified": true
+    }
+]

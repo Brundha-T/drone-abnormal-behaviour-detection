@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drone Abnormal Detection | Women Safety AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0b0d17;
+      --surface:  #13162a;
+      --card:     #1a1e38;
+      --border:   #252a4a;
+      --accent:   #5f6fff;
+      --accent2:  #a259ff;
+      --danger:   #ff4c6a;
+      --success:  #22d98b;
+      --text:     #e8eaf6;
+      --muted:    #8891b8;
+      --radius:   16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px 40px;
+      background: rgba(19,22,42,0.95);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .nav-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    nav h1 { font-size: 1rem; font-weight: 700; letter-spacing: 0.5px; }
+    nav p  { font-size: 0.72rem; color: var(--muted); }
+    .nav-badge {
+      margin-left: auto;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 5px 14px; border-radius: 20px;
+      font-size: 0.72rem; font-weight: 600;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+    .hero .tag {
+      display: inline-block;
+      background: rgba(95,111,255,0.15);
+      border: 1px solid rgba(95,111,255,0.4);
+      color: var(--accent);
+      padding: 5px 16px; border-radius: 20px;
+      font-size: 0.8rem; font-weight: 600;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .hero h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #fff 30%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      color: var(--muted); font-size: 1rem; max-width: 540px; margin: 0 auto 10px;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 24px 60px;
+      width: 100%;
+    }
+    @media (max-width: 760px) { .main { grid-template-columns: 1fr; } }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+    .card-title {
+      font-size: 0.85rem; font-weight: 700;
+      color: var(--muted); letter-spacing: 1px;
+      text-transform: uppercase; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .card-title::before {
+      content: '';
+      width: 3px; height: 16px; border-radius: 2px;
+      background: linear-gradient(var(--accent), var(--accent2));
+    }
+
+    /* ── UPLOAD ZONE ── */
+    #dropzone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+    #dropzone:hover, #dropzone.dragover {
+      border-color: var(--accent);
+      background: rgba(95,111,255,0.07);
+    }
+    #dropzone .icon { font-size: 3rem; margin-bottom: 12px; }
+    #dropzone h3 { font-size: 1rem; margin-bottom: 6px; }
+    #dropzone p  { font-size: 0.8rem; color: var(--muted); }
+    #fileInput { display: none; }
+
+    .file-preview {
+      display: none;
+      align-items: center; gap: 12px;
+      margin-top: 16px;
+      background: rgba(95,111,255,0.1);
+      border: 1px solid rgba(95,111,255,0.3);
+      padding: 12px 16px; border-radius: 10px;
+    }
+    .file-preview.show { display: flex; }
+    .file-preview .file-icon { font-size: 1.5rem; }
+    .file-preview .file-info { flex: 1; overflow: hidden; }
+    .file-preview .file-name { font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .file-preview .file-size { font-size: 0.72rem; color: var(--muted); }
+    #removeFile { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; }
+    #removeFile:hover { color: var(--danger); }
+
+    /* ── BUTTON ── */
+    .btn-primary {
+      width: 100%; margin-top: 20px;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none; border-radius: 10px;
+      color: #fff; font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem; font-weight: 700;
+      cursor: pointer; transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(95,111,255,0.4);
+    }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* ── SPINNER ── */
+    .spinner {
+      width: 18px; height: 18px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── RESULT CARD ── */
+    #resultCard {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    #resultCard.show { display: flex; }
+
+    .verdict {
+      border-radius: 12px;
+      padding: 24px;
+      display: flex; align-items: center; gap: 16px;
+      position: relative; overflow: hidden;
+    }
+    .verdict::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 60%);
+    }
+    .verdict.abnormal { background: rgba(255,76,106,0.15); border: 1px solid rgba(255,76,106,0.4); }
+    .verdict.normal   { background: rgba(34,217,139,0.12); border: 1px solid rgba(34,217,139,0.35); }
+    .verdict-icon { font-size: 2.8rem; }
+    .verdict-content h3 { font-size: 1.4rem; font-weight: 800; }
+    .verdict.abnormal .verdict-content h3 { color: var(--danger); }
+    .verdict.normal   .verdict-content h3 { color: var(--success); }
+    .verdict-content p { font-size: 0.82rem; color: var(--muted); margin-top: 4px; }
+
+    /* ── CONFIDENCE BAR ── */
+    .conf-label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 8px; color: var(--muted); }
+    .conf-track { height: 10px; background: var(--border); border-radius: 999px; overflow: hidden; }
+    .conf-fill  { height: 100%; border-radius: 999px; transition: width 1s ease; width: 0; }
+    .conf-fill.abnormal { background: linear-gradient(90deg, #ff4c6a, #ff8a6a); }
+    .conf-fill.normal   { background: linear-gradient(90deg, #22d98b, #00c3ff); }
+
+    /* ── VIDEO PLAYER ── */
+    #videoPlayer {
+      width: 100%; border-radius: 10px;
+      background: #000;
+      display: none;
+    }
+    #videoPlayer.show { display: block; }
+    #videoLabel {
+      font-size: 0.78rem; color: var(--muted);
+      text-align: center; margin-top: 6px;
+    }
+    #downloadBtn {
+      display: none;
+      align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 10px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--muted);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+    #downloadBtn.show { display: flex; }
+    #downloadBtn:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── PLACEHOLDER ── */
+    .result-placeholder {
+      flex: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px; color: var(--muted);
+      padding: 40px 0;
+    }
+    .result-placeholder .ph-icon { font-size: 3rem; opacity: 0.4; }
+    .result-placeholder p { font-size: 0.85rem; }
+
+    /* ── STATS BAR ── */
+    .stats {
+      display: flex; gap: 16px;
+      padding: 14px 24px 14px 40px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem; color: var(--muted);
+    }
+    .stats span b { color: var(--text); }
+
+    /* ── LOG ── */
+    #logBox {
+      margin-top: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: var(--accent);
+      white-space: pre-wrap;
+      max-height: 120px;
+      overflow-y: auto;
+      display: none;
+    }
+    #logBox.show { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-icon">🚁</div>
+  <div>
+    <h1>DroneWatch AI</h1>
+    <p>Abnormal Detection System</p>
+  </div>
+  <span class="nav-badge">🛡 Women Safety</span>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="tag">🎓 AI / DEEP LEARNING PROJECT</div>
+  <h2>Drone Assisted Abnormal<br>Detection of Women in Public Places</h2>
+  <p>Upload a surveillance video clip to classify it as <strong>Normal</strong> or <strong>Abnormal (Violent)</strong> using our MobileNetV2 + LSTM model.</p>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- LEFT: UPLOAD -->
+  <div class="card">
+    <div class="card-title">Upload Video</div>
+
+    <div id="dropzone" onclick="document.getElementById('fileInput').click()">
+      <div class="icon">📹</div>
+      <h3>Click or Drag &amp; Drop</h3>
+      <p>MP4 · AVI · MOV · MKV</p>
+    </div>
+    <input type="file" id="fileInput" accept="video/mp4,video/avi,video/mov,video/mkv,.mp4,.avi,.mov,.mkv" />
+
+    <div class="file-preview" id="filePreview">
+      <div class="file-icon">🎬</div>
+      <div class="file-info">
+        <div class="file-name" id="fileName">—</div>
+        <div class="file-size" id="fileSize">—</div>
+      </div>
+      <button id="removeFile" title="Remove">✕</button>
+    </div>
+
+    <button class="btn-primary" id="analyzeBtn" disabled onclick="analyze()">
+      <div class="spinner" id="spinner"></div>
+      <span id="btnText">🔍 Analyze Video</span>
+    </button>
+
+    <!-- LOG -->
+    <div id="logBox"></div>
+  </div>
+
+  <!-- RIGHT: RESULT -->
+  <div class="card" style="display:flex; flex-direction:column; gap:18px;">
+    <div class="card-title">Detection Result</div>
+
+    <!-- Placeholder -->
+    <div class="result-placeholder" id="placeholder">
+      <div class="ph-icon">📊</div>
+      <p>Results will appear here after analysis.</p>
+    </div>
+
+    <!-- Result content -->
+    <div id="resultCard">
+      <!-- Verdict -->
+      <div class="verdict" id="verdictBox">
+        <div class="verdict-icon" id="verdictIcon">❓</div>
+        <div class="verdict-content">
+          <h3 id="verdictLabel">—</h3>
+          <p id="verdictSub">—</p>
+        </div>
+      </div>
+
+      <!-- Confidence bar -->
+      <div>
+        <div class="conf-label">
+          <span>Confidence</span>
+          <span id="confPct">0%</span>
+        </div>
+        <div class="conf-track">
+          <div class="conf-fill" id="confFill"></div>
+        </div>
+      </div>
+
+      <!-- Video player -->
+      <video id="videoPlayer" controls></video>
+      <p id="videoLabel"></p>
+      <a id="downloadBtn" download>⬇ Download Annotated Video</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <span>🏗 Model: <b>MobileNetV2 + LSTM</b></span>
+  <span>🧩 Frames: <b>16 per clip</b></span>
+  <span>📐 Input: <b>112×112</b></span>
+  <span>📂 Classes: <b>Violent / Non-Violent</b></span>
+</div>
+
+<script>
+  let selectedFile = null;
+
+  // ── Dropzone drag ──
+  const dropzone = document.getElementById('dropzone');
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault(); dropzone.classList.remove('dragover');
+    const f = e.dataTransfer.files[0];
+    if (f) handleFile(f);
+  });
+
+  document.getElementById('fileInput').addEventListener('change', e => {
+    if (e.target.files[0]) handleFile(e.target.files[0]);
+  });
+
+  document.getElementById('removeFile').addEventListener('click', e => {
+    e.stopPropagation(); clearFile();
+  });
+
+  function handleFile(f) {
+    selectedFile = f;
+    document.getElementById('fileName').textContent = f.name;
+    document.getElementById('fileSize').textContent = formatSize(f.size);
+    document.getElementById('filePreview').classList.add('show');
+    document.getElementById('analyzeBtn').disabled = false;
+    resetResult();
+  }
+
+  function clearFile() {
+    selectedFile = null;
+    document.getElementById('fileInput').value = '';
+    document.getElementById('filePreview').classList.remove('show');
+    document.getElementById('analyzeBtn').disabled = true;
+    resetResult();
+  }
+
+  function formatSize(bytes) {
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+  }
+
+  function resetResult() {
+    document.getElementById('placeholder').style.display = '';
+    document.getElementById('resultCard').classList.remove('show');
+    document.getElementById('logBox').classList.remove('show');
+    document.getElementById('videoPlayer').classList.remove('show');
+    document.getElementById('downloadBtn').classList.remove('show');
+  }
+
+  // ── Analyze ──
+  async function analyze() {
+    if (!selectedFile) return;
+
+    const spinner  = document.getElementById('spinner');
+    const btnText  = document.getElementById('btnText');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    spinner.style.display = 'block';
+    btnText.textContent = 'Analyzing…';
+    analyzeBtn.disabled = true;
+
+    const fd = new FormData();
+    fd.append('video', selectedFile);
+
+    try {
+      const res  = await fetch('/predict', { method: 'POST', body: fd });
+      const data = await res.json();
+
+      if (data.error) {
+        showLog('ERROR:\n' + data.error);
+      } else {
+        showResult(data);
+      }
+    } catch (e) {
+      showLog('Network error: ' + e.message);
+    } finally {
+      spinner.style.display = 'none';
+      btnText.textContent   = '🔍 Analyze Video';
+      analyzeBtn.disabled   = false;
+    }
+  }
+
+  function showResult(data) {
+    const isAbnormal = (data.label || '').toUpperCase().includes('ABNORMAL');
+    const conf       = parseFloat(data.confidence) || 0;
+
+    // Hide placeholder
+    document.getElementById('placeholder').style.display = 'none';
+    document.getElementById('resultCard').classList.add('show');
+
+    // Verdict
+    const box  = document.getElementById('verdictBox');
+    const icon = document.getElementById('verdictIcon');
+    const lbl  = document.getElementById('verdictLabel');
+    const sub  = document.getElementById('verdictSub');
+
+    box.className = 'verdict ' + (isAbnormal ? 'abnormal' : 'normal');
+    icon.textContent = isAbnormal ? '⚠️' : '✅';
+    lbl.textContent  = isAbnormal ? 'ABNORMAL DETECTED' : 'NORMAL BEHAVIOR';
+    sub.textContent  = isAbnormal
+      ? 'Violent/Abnormal activity detected in this footage.'
+      : 'No abnormal activity detected. Scene appears normal.';
+
+    // Confidence bar
+    document.getElementById('confPct').textContent = conf.toFixed(1) + '%';
+    const fill = document.getElementById('confFill');
+    fill.className = 'conf-fill ' + (isAbnormal ? 'abnormal' : 'normal');
+    setTimeout(() => { fill.style.width = conf + '%'; }, 100);
+
+    // Video preview
+    if (data.video_url) {
+      const player = document.getElementById('videoPlayer');
+      player.src = data.video_url;
+      player.classList.add('show');
+      document.getElementById('videoLabel').textContent = '🎬 Annotated output video';
+
+      const dlBtn = document.getElementById('downloadBtn');
+      dlBtn.href = data.video_url;
+      dlBtn.classList.add('show');
+    }
+
+    // Log
+    if (data.output) showLog(data.output);
+  }
+
+  function showLog(txt) {
+    const box = document.getElementById('logBox');
+    box.textContent = txt;
+    box.classList.add('show');
+  }
+</script>
+</body>
+</html>
